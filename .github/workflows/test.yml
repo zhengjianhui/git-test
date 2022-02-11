@@ -8,10 +8,7 @@ jobs:
     steps:
       - name: Git checkout
         uses: actions/checkout@v1
-      - name: Get PR Info Action
-        uses: Brymastr/pr-info-action@v1
-	id: pr-info
       - name: Branch name
-        run: echo running on branch ${{ steps.pr-info.outputs.head_branch }} && echo running on branch ${{ github.head_ref }}
+        run: echo running on branch pull/${{ github.event.pull_request.number }}/head:${{ github.head_ref }} && echo running on branch ${{ github.head_ref }}
 
 
